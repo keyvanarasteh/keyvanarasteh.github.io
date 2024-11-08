@@ -1,0 +1,9 @@
+# List of TO-DO:
+
+- add color theory full comprehensive tutorial
+- design my own company color combination ;-)
+- make crew build something and feel they are really making something...
+  - They will get more interested...
+  - its like jumping from the ramp of snowboard pist ;-) (i love it)...
+- coming soon ;-)
+- 
