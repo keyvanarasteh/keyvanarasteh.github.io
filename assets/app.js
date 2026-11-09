@@ -3,6 +3,8 @@
     navHome: "Ana sayfa", navWork: "Çalışmalar", navProjects: "Projeler", navTeaching: "Eğitim", navApproach: "Yaklaşım", navWriting: "Yazılar", navAbout: "Hakkımda",
     heroEyebrow: "BAĞIMSIZ GELİŞTİRİCİ · İSTANBUL", heroLine1: "Geleceği", heroLine2: "inşa ediyorum.",
     heroIntro: "Güvenlik, yapay zekâ ve kullanışlı geliştirici deneyimlerinin kesişiminde yazılımlar geliştiriyorum. Alttaki sistemden öndeki arayüze kadar her parçanın nasıl çalıştığıyla ilgileniyorum.",
+    stackTitle: "Farklı teknolojilerle üretiyorum.", stackIntro: "Açık projelerimde ve Qrofessor çalışmalarımda görülebilen dillerden ve platformlardan bir seçki.",
+    stackLanguages: "Programlama dilleri", stackFrameworks: "Çatılar ve platformlar", stackFootprintLabel: "GÜNCEL KAYNAK KODU", stackFootprintUnit: "boş olmayan kaynak satırı", stackRepositories: "depo", stackFootprintNote: "Sahibi olduğum açık ve özel depolarda. Yaygın bağımlılık ve üretilmiş kod yolları hariçtir; toplamda ortakların kodu da bulunabilir.",
     exploreWork: "Seçili projeleri keşfet", viewGithub: "GitHub'ı görüntüle", heroNote: "Kod, fikir ve deneylerden oluşan pratik bir portfolyo.",
     workTitle: "Kullanılmak için üretildi.", workIntro: "Güvenlik, yapay zekâ altyapısı ve günlük araçlar alanındaki açık projeler. Her biri kaynak koduna bağlanır.",
     filterAll: "Tüm projeler", filterSecurity: "Güvenlik", filterTools: "Araçlar",

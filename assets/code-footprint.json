@@ -1,0 +1,6 @@
+{
+  "asOf": "2026-11-09",
+  "sourceLines": 20354216,
+  "repositories": 494,
+  "method": "Nonblank source lines on default branches of owned, nonfork public and private repositories; common dependency and generated paths excluded; collaborator code may be included."
+}

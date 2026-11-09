@@ -22,7 +22,7 @@ Pages source must be set to **GitHub Actions**.
 
 The public pages are `index.html`, `about/`, `projects/`, and `teaching/`.
 The Qrofessor links and the about/teaching content were checked against the
-public site and its source in `QLineTech-Websites`. Update both English copy
+public site and its local source. Update both English copy
 and Turkish `data-tr` attributes for text added to the subpages.
 
 The project links and writing links are intentionally explicit. Review them
@@ -43,3 +43,17 @@ For local refresh, run:
 ```sh
 python3 scripts/update_activity.py --json assets/activity.json --svg assets/activity.svg
 ```
+
+## Source footprint
+
+The language and framework list is a curated selection verified against public
+repository manifests and the Qrofessor source. The source line figure is a dated
+snapshot of nonblank lines on the default branches of owned, nonfork public and
+private repositories. Common dependency and generated paths, binaries, and
+assets are skipped. It is a repository total, so collaborator code can be
+included; it is not a lifetime authored line count.
+
+To refresh the aggregate locally, authenticate GitHub CLI as the account owner
+and run `python3 scripts/count_code_lines.py`. It writes only the total,
+repository count, date, and method to `assets/code-footprint.json`. Keep the
+private inventory and source archives out of this repository.
