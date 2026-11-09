@@ -22,7 +22,8 @@
     aboutTitle: "Projelerin<br>arkasındaki kişi.",
     aboutBody1: "İstanbul'da yaşayan bir geliştirici ve QLine Technology Solutions'ın kurucusuyum. Çalışmalarım sistem mimarisi, güvenlik araştırması ve eğitimi kapsıyor.",
     aboutBody2: "İnsanların karmaşık sistemleri anlamasına, sınamasına ve iyileştirmesine yardımcı olan açık araçlar ve öğrenme alanları geliştiriyorum.", fullStory: "Hikâyenin tamamı ↗",
-    closingTitle: "İnşa etmeye değer bir<br>fikriniz mi var?", connectGithub: "GitHub'da bağlantı kur", footerNote: "Özenle tasarlandı ve geliştirildi.", backTop: "Başa dön ↑"
+    connectTitle: "Web'de başka yerlerde de buluşalım.", connectIntro: "Araştırmalar, kod, videolar ve profesyonel güncellemeler için herkese açık profillerim.",
+    closingTitle: "İnşa etmeye değer bir<br>fikriniz mi var?", connectGithub: "GitHub'da bağlantı kur", connectLinkedin: "LinkedIn'de bağlantı kur", footerNote: "Özenle tasarlandı ve geliştirildi.", backTop: "Başa dön ↑"
   };
   const formatted = new Set(['approachTitle', 'aboutTitle', 'closingTitle', 'ecosystemTitle']);
   const en = Object.fromEntries([...document.querySelectorAll('[data-i18n]')].map((node) => [node.dataset.i18n, formatted.has(node.dataset.i18n) ? node.innerHTML : node.textContent]));
