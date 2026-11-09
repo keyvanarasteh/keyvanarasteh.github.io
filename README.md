@@ -1,8 +1,7 @@
 # Keyvan Arasteh — personal site
 
-Source for [keyvanarasteh.github.io](https://keyvanarasteh.github.io/). GitHub
-Pages serves the repository root from `main`; there is no build step or runtime
-backend. The site is plain HTML, CSS, and JavaScript.
+Source for [keyvanarasteh.github.io](https://keyvanarasteh.github.io/). The
+site is plain HTML, CSS, and JavaScript, with no runtime backend.
 
 ## Preview
 
@@ -16,9 +15,10 @@ content in `index.html`. Update both when editing visible text.
 
 ## Publish
 
-Merge or push changes to `main`. GitHub Pages is configured to publish from
-`main` at `/`, so no separate deployment command is needed. Check the Pages
-build status in the repository settings after pushing.
+Merge or push changes to `main`. The [Publish portfolio](.github/workflows/pages.yml)
+workflow checks the source, stages only public files, and deploys the artifact
+through GitHub Pages. It can also be run manually from the Actions tab. The
+Pages source must be set to **GitHub Actions**.
 
 The project links and writing links are intentionally explicit. Review them
 when renaming repositories or articles. The portrait is a local copy of the
