@@ -13,7 +13,7 @@
     projectWebq: "Tauri, Svelte ve Rust ile platformlar arası güvenlik analizi ve bilgi toplama aracı.",
     projectQleaner: "Rust, Svelte ve Tauri ile geliştirilmiş platformlar arası disk temizleyici.",
     allRepos: "Tüm projeleri keşfet", approachTitle: "Merak,<br>düzenle birlikte.",
-    ecosystemTitle: "Araçlar ve bilgi<br>birlikte ilerler.", ecosystemIntro: "QLine Technology Solutions'daki çalışmalarım açık kaynak mühendisliğini uygulamalı öğrenmeyle buluşturuyor. Qrofessor dersleri, laboratuvarları ve teknik kaynakları aynı ekosistemde bir araya getiriyor.",
+    ecosystemTitle: "Araçlar ve bilgi<br>birlikte ilerler.", ecosystemIntro: "Qrofessor Technology Solutions'daki çalışmalarım açık kaynak mühendisliğini uygulamalı öğrenmeyle buluşturuyor. Qrofessor dersleri, laboratuvarları ve teknik kaynakları aynı ekosistemde bir araya getiriyor.",
     teachingPage: "Eğitim çalışmalarını keşfet", ecosystemCourse: "Dersler ve uygulamalı laboratuvarlar", ecosystemTools: "Açık kaynak paketler", ecosystemResearch: "Güvenlik analiz laboratuvarı",
     approachIntro: "Farklı disiplinler arasında çalışmayı seviyorum; ama süreç somut kalıyor: sistemi anlamak, açık bir model kurmak, sonra insanların gerçekten kullanabileceği bir şey üretmek.",
     principle1Title: "Sınırları anla", principle1Body: "Güvenlik çalışması, sistemlerin sınırlarında ve baskı altında nasıl davrandığını görerek başlar.",
@@ -24,7 +24,7 @@
     writingTitle: "Düşünürken yazıyorum.", writingIntro: "Tasarım ve renk teorisi üzerine İngilizce ve Türkçe uzun notlar.",
     article1Title: "Renk teorisinin temelleri", article2Title: "Pratikte renk kullanımı", readArticle: "Yazıyı oku ↗",
     aboutTitle: "Projelerin<br>arkasındaki kişi.",
-    aboutBody1: "İstanbul'da yaşayan bir geliştirici ve QLine Technology Solutions'ın kurucusuyum. Çalışmalarım sistem mimarisi, güvenlik araştırması ve eğitimi kapsıyor.",
+    aboutBody1: "İstanbul'da yaşayan bir geliştirici ve Qrofessor Technology Solutions'ın kurucusuyum. Çalışmalarım sistem mimarisi, güvenlik araştırması ve eğitimi kapsıyor.",
     aboutBody2: "İnsanların karmaşık sistemleri anlamasına, sınamasına ve iyileştirmesine yardımcı olan açık araçlar ve öğrenme alanları geliştiriyorum.", fullStory: "Hikâyenin tamamı ↗",
     connectTitle: "Web'de başka yerlerde de buluşalım.", connectIntro: "Araştırmalar, kod, videolar ve profesyonel güncellemeler için herkese açık profillerim.",
     closingTitle: "İnşa etmeye değer bir<br>fikriniz mi var?", connectGithub: "GitHub'da bağlantı kur", connectLinkedin: "LinkedIn'de bağlantı kur", footerNote: "Özenle tasarlandı ve geliştirildi.", backTop: "Başa dön ↑"
