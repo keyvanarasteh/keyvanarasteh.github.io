@@ -28,3 +28,18 @@ and Turkish `data-tr` attributes for text added to the subpages.
 The project links and writing links are intentionally explicit. Review them
 when renaming repositories or articles. The portrait is a local copy of the
 public GitHub profile image; replace `assets/keyvan-avatar.jpg` if it changes.
+
+## GitHub activity
+
+The home page shows the past-year GitHub contribution calendar, active days,
+commit contributions, and pull request contributions. `scripts/update_activity.py`
+queries GitHub's GraphQL contribution data and generates `assets/activity.json`
+and `assets/activity.svg`. The Pages workflow regenerates both in the published
+artifact on every push and hourly. The UI shows the UTC update time. GitHub's
+scheduled workflows can run late, so the displayed time is the source of truth.
+
+For local refresh, run:
+
+```sh
+python3 scripts/update_activity.py --json assets/activity.json --svg assets/activity.svg
+```

@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
 
 permissions:
   contents: read
@@ -34,6 +36,10 @@ jobs:
           cp index.html 404.html robots.txt sitemap.xml .nojekyll site/
           cp -R assets site/
           cp -R about projects teaching site/
+      - name: Refresh GitHub activity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/update_activity.py --json site/assets/activity.json --svg site/assets/activity.svg
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

@@ -17,6 +17,8 @@
     principle1Title: "Sınırları anla", principle1Body: "Güvenlik çalışması, sistemlerin sınırlarında ve baskı altında nasıl davrandığını görerek başlar.",
     principle2Title: "Karmaşıklığı anlaşılır kıl", principle2Body: "İyi araçlar, her kararı zorlaştırmadan önemli ayrıntıları görünür kılar.",
     principle3Title: "Açıkta geliştir", principle3Body: "Başkalarının inceleyip geliştirebileceği açık kod, yararlı belgeler ve fikirler.",
+    activityTitle: "Gün gün üretim.", activityIntro: "GitHub katkı takvimimin her saat yenilenen bir görünümü.",
+    activityContributions: "Katkılar", activityDays: "Aktif gün", activityCommits: "Commit katkıları", activityPrs: "PR katkıları", activityCalendar: "SON YIL / KATKI TAKVİMİ", activityView: "GitHub'da gör ↗",
     writingTitle: "Düşünürken yazıyorum.", writingIntro: "Tasarım ve renk teorisi üzerine İngilizce ve Türkçe uzun notlar.",
     article1Title: "Renk teorisinin temelleri", article2Title: "Pratikte renk kullanımı", readArticle: "Yazıyı oku ↗",
     aboutTitle: "Projelerin<br>arkasındaki kişi.",
@@ -81,12 +83,47 @@
     document.querySelectorAll('.project-card').forEach((card) => { card.hidden = filter !== 'all' && !card.dataset.category.split(' ').includes(filter); });
   }));
   document.getElementById('year').textContent = new Date().getFullYear();
+  const heatmap = document.getElementById('activity-heatmap');
+  if (heatmap) {
+    fetch('/assets/activity.json', { cache: 'no-cache' }).then((response) => {
+      if (!response.ok) throw new Error(`Activity request failed: ${response.status}`);
+      return response.json();
+    }).then((activity) => {
+      const format = (value) => Number(value).toLocaleString();
+      for (const [id, value] of Object.entries({
+        'activity-contributions': activity.contributions,
+        'activity-days': activity.activeDays,
+        'activity-commits': activity.commits,
+        'activity-prs': activity.pullRequests
+      })) document.getElementById(id).textContent = format(value);
+      const colors = ['#243443', '#456b49', '#668f54', '#8fc45e', '#b8f171'];
+      const level = (count) => count ? 1 + activity.thresholds.filter((threshold) => count > threshold).length : 0;
+      for (const week of activity.weeks) {
+        const column = document.createElement('div');
+        column.className = 'activity-week';
+        for (const day of week) {
+          const cell = document.createElement('span');
+          cell.className = 'activity-day';
+          cell.style.gridRow = String(new Date(`${day.date}T12:00:00Z`).getUTCDay() + 1);
+          cell.style.backgroundColor = colors[level(day.count)];
+          cell.title = `${day.date}: ${format(day.count)} contributions`;
+          column.append(cell);
+        }
+        heatmap.append(column);
+      }
+      heatmap.setAttribute('aria-label', `${format(activity.contributions)} GitHub contributions across ${activity.activeDays} active days from ${activity.periodStart} to ${activity.periodEnd}`);
+      document.getElementById('activity-streak').textContent = `${activity.longestStreak} day longest streak`;
+      document.getElementById('activity-status').textContent = `GitHub contribution calendar · Updated ${activity.updatedAt.slice(0, 16).replace('T', ' ')} UTC`;
+    }).catch(() => {
+      document.getElementById('activity-status').textContent = 'GitHub activity is temporarily unavailable.';
+    });
+  }
   if ('IntersectionObserver' in window) {
     const links = [...document.querySelectorAll('.desktop-nav a')];
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) links.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
     }, { rootMargin: '-20% 0px -65% 0px' });
-    ['work', 'approach', 'writing', 'about'].forEach((id) => { const section = document.getElementById(id); if (section) observer.observe(section); });
+    ['work', 'approach', 'activity', 'writing', 'about'].forEach((id) => { const section = document.getElementById(id); if (section) observer.observe(section); });
   }
 })();
