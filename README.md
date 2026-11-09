@@ -20,6 +20,11 @@ workflow checks the source, stages only public files, and deploys the artifact
 through GitHub Pages. It can also be run manually from the Actions tab. The
 Pages source must be set to **GitHub Actions**.
 
+The public pages are `index.html`, `about/`, `projects/`, and `teaching/`.
+The Qrofessor links and the about/teaching content were checked against the
+public site and its source in `QLineTech-Websites`. Update both English copy
+and Turkish `data-tr` attributes for text added to the subpages.
+
 The project links and writing links are intentionally explicit. Review them
 when renaming repositories or articles. The portrait is a local copy of the
 public GitHub profile image; replace `assets/keyvan-avatar.jpg` if it changes.

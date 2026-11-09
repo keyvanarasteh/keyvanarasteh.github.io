@@ -1,6 +1,6 @@
 (() => {
   const tr = {
-    navWork: "Projeler", navApproach: "Yaklaşım", navWriting: "Yazılar", navAbout: "Hakkımda",
+    navHome: "Ana sayfa", navWork: "Çalışmalar", navProjects: "Projeler", navTeaching: "Eğitim", navApproach: "Yaklaşım", navWriting: "Yazılar", navAbout: "Hakkımda",
     heroEyebrow: "BAĞIMSIZ GELİŞTİRİCİ · İSTANBUL", heroLine1: "Geleceği", heroLine2: "inşa ediyorum.",
     heroIntro: "Güvenlik, yapay zekâ ve kullanışlı geliştirici deneyimlerinin kesişiminde yazılımlar geliştiriyorum. Alttaki sistemden öndeki arayüze kadar her parçanın nasıl çalıştığıyla ilgileniyorum.",
     exploreWork: "Seçili projeleri keşfet", viewGithub: "GitHub'ı görüntüle", heroNote: "Kod, fikir ve deneylerden oluşan pratik bir portfolyo.",
@@ -10,7 +10,9 @@
     projectQai: "Birden çok yapay zekâ sağlayıcısı için tek API sunan modüler ve tip güvenli Rust SDK'sı.",
     projectWebq: "Tauri, Svelte ve Rust ile platformlar arası güvenlik analizi ve bilgi toplama aracı.",
     projectQleaner: "Rust, Svelte ve Tauri ile geliştirilmiş platformlar arası disk temizleyici.",
-    allRepos: "Tüm açık depoları keşfet", approachTitle: "Merak,<br>düzenle birlikte.",
+    allRepos: "Tüm projeleri keşfet", approachTitle: "Merak,<br>düzenle birlikte.",
+    ecosystemTitle: "Araçlar ve bilgi<br>birlikte ilerler.", ecosystemIntro: "QLine Technology Solutions'daki çalışmalarım açık kaynak mühendisliğini uygulamalı öğrenmeyle buluşturuyor. Qrofessor dersleri, laboratuvarları ve teknik kaynakları aynı ekosistemde bir araya getiriyor.",
+    teachingPage: "Eğitim çalışmalarını keşfet", ecosystemCourse: "Dersler ve uygulamalı laboratuvarlar", ecosystemTools: "Açık kaynak paketler", ecosystemResearch: "Güvenlik analiz laboratuvarı",
     approachIntro: "Farklı disiplinler arasında çalışmayı seviyorum; ama süreç somut kalıyor: sistemi anlamak, açık bir model kurmak, sonra insanların gerçekten kullanabileceği bir şey üretmek.",
     principle1Title: "Sınırları anla", principle1Body: "Güvenlik çalışması, sistemlerin sınırlarında ve baskı altında nasıl davrandığını görerek başlar.",
     principle2Title: "Karmaşıklığı anlaşılır kıl", principle2Body: "İyi araçlar, her kararı zorlaştırmadan önemli ayrıntıları görünür kılar.",
@@ -18,12 +20,13 @@
     writingTitle: "Düşünürken yazıyorum.", writingIntro: "Tasarım ve renk teorisi üzerine İngilizce ve Türkçe uzun notlar.",
     article1Title: "Renk teorisinin temelleri", article2Title: "Pratikte renk kullanımı", readArticle: "Yazıyı oku ↗",
     aboutTitle: "Projelerin<br>arkasındaki kişi.",
-    aboutBody1: "İstanbul'da yaşayan bir geliştiriciyim. Bilgisayarlara ilgim erken başladı; yazılım üretmekten, yazılımın nasıl çalıştığını anlamaya ve sınamaya uzandı.",
-    aboutBody2: "Bugün güvenlik araştırması, uygulamalı yapay zekâ ve karmaşık sistemleri daha kolay kullanılabilir kılma üzerine çalışıyorum. Bu site, yaptıklarımın küçük bir haritası.",
+    aboutBody1: "İstanbul'da yaşayan bir geliştirici ve QLine Technology Solutions'ın kurucusuyum. Çalışmalarım sistem mimarisi, güvenlik araştırması ve eğitimi kapsıyor.",
+    aboutBody2: "İnsanların karmaşık sistemleri anlamasına, sınamasına ve iyileştirmesine yardımcı olan açık araçlar ve öğrenme alanları geliştiriyorum.", fullStory: "Hikâyenin tamamı ↗",
     closingTitle: "İnşa etmeye değer bir<br>fikriniz mi var?", connectGithub: "GitHub'da bağlantı kur", footerNote: "Özenle tasarlandı ve geliştirildi.", backTop: "Başa dön ↑"
   };
-  const formatted = new Set(['approachTitle', 'aboutTitle', 'closingTitle']);
+  const formatted = new Set(['approachTitle', 'aboutTitle', 'closingTitle', 'ecosystemTitle']);
   const en = Object.fromEntries([...document.querySelectorAll('[data-i18n]')].map((node) => [node.dataset.i18n, formatted.has(node.dataset.i18n) ? node.innerHTML : node.textContent]));
+  const englishTitle = document.title;
   const safeStorage = {
     get(key) { try { return localStorage.getItem(key); } catch { return null; } },
     set(key, value) { try { localStorage.setItem(key, value); } catch { /* Storage can be unavailable. */ } }
@@ -33,7 +36,7 @@
     const selected = language === 'tr' ? 'tr' : 'en';
     document.documentElement.lang = selected;
     for (const node of document.querySelectorAll('[data-i18n]')) {
-      const value = selected === 'tr' ? tr[node.dataset.i18n] : en[node.dataset.i18n];
+      const value = selected === 'tr' ? (tr[node.dataset.i18n] || node.dataset.tr) : en[node.dataset.i18n];
       if (value) {
         if (formatted.has(node.dataset.i18n)) node.innerHTML = value;
         else node.textContent = value;
@@ -47,7 +50,7 @@
     }
     languageButton.textContent = selected === 'en' ? 'TR ↗' : 'EN ↗';
     languageButton.setAttribute('aria-label', selected === 'en' ? 'Türkçeye geç' : 'Switch to English');
-    document.title = selected === 'en' ? 'Keyvan Arasteh — Software, security & AI' : 'Keyvan Arasteh — Yazılım, güvenlik ve yapay zekâ';
+    document.title = selected === 'en' ? englishTitle : (document.body.dataset.titleTr || 'Keyvan Arasteh — Yazılım, güvenlik ve yapay zekâ');
     safeStorage.set('keyvan-language', selected);
   }
   const requestedLanguage = new URLSearchParams(location.search).get('lang');
@@ -83,6 +86,6 @@
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) links.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
     }, { rootMargin: '-20% 0px -65% 0px' });
-    ['work', 'approach', 'writing', 'about'].forEach((id) => observer.observe(document.getElementById(id)));
+    ['work', 'approach', 'writing', 'about'].forEach((id) => { const section = document.getElementById(id); if (section) observer.observe(section); });
   }
 })();

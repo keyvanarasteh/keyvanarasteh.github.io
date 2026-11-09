@@ -25,11 +25,15 @@ jobs:
           test -s assets/style.css
           test -s assets/keyvan-avatar.jpg
           test -s assets/og.png
+          test -s about/index.html
+          test -s projects/index.html
+          test -s teaching/index.html
       - name: Stage public files
         run: |
           mkdir -p site
           cp index.html 404.html robots.txt sitemap.xml .nojekyll site/
           cp -R assets site/
+          cp -R about projects teaching site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
